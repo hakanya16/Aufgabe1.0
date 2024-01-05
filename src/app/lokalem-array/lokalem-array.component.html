@@ -1,0 +1,12 @@
+
+<div class="dropdown">
+  <input type="text" [(ngModel)]="searchText" (input)="filterLaender()"
+         (focus)="onFocus()"  (keydown)="onKeydown($event)">
+
+  <ul *ngIf="filteredLaender.length > 0 && isInputFocused">
+    <li *ngFor="let land of filteredLaender; let i = index" (click)="selectLand(land)"
+        [class.selected]="i === selectedIndex">
+      {{ land }}
+    </li>
+  </ul>
+</div>
